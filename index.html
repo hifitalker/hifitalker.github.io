@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="HiFiTalker: High Fidelity Talking Head Generation for Video Dubbing">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HiFiTalker: High Fidelity Talking Head Generation for Video Dubbing</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column has-text-centered">
+        <h1 class="title is-1 publication-title">
+          HiFiTalker: High Fidelity Talking Head Generation for Video Dubbing </h1>
+        <div class="is-size-5 publication-authors">
+          <span class="author-block">
+            Anonymous Authors</span>
+        </div>
+      </div>  
+    </div>
+    
+
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Audio-driven talking head video dubbing aims to edit
+            face motions, especially lip motions, producing lip-synced
+            video according to input audio. However, previous works
+            paid little attention to style information in the original video
+            and mainly took single reference image when generating the
+            current frame. To address these limitations, we proposed
+            HiFiTalker, a novel two-stage framework for high-fidelity
+            talking head video dubbing that includes a two-stage network:
+            (1) explicit style-disentangled audio to landmark network,
+            which extracts lip motion style from original video
+            and generates style-controllable landmarks synced with target
+            audio in coarse-to-fine method; (2) multi-ref landmark
+            to video network, which takes driving landmarks and multiple
+            reference images to synthesize high-fidelity talking head
+            video with a hierarchical attention-based mix layer and hybrid
+            reference selection strategy. Besides, we design an
+            effective data-cleaning strategy and inference strategy to
+            achieve better results. Extensive experiments on in-the-wild
+            examples demonstrate that HiFiTalker outperforms state-of-the-art 
+            methods in generating more identity-preserving lip
+            motions and higher-fidelity videos.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Overall Framework -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Overall Framework</h2>
+        <div class="content has-text-justified">
+          <p>
+            The overall inference process of HiFiTalker is demonstrated as follows:
+          </p>
+          <p>
+            <img src="./static/images/inference.png"
+      class="interpolation-image"
+      alt="The inference process of Real3D-Portrait."/>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Overall Framework -->
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Main compare video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Main Comparison Video</h2>
+        <video id="main-compare-video"
+                controls
+                muted
+                preload
+                playsinline
+                width="90%">
+          <source src="./static/videos/D1.main_compare.mp4"
+                  type="video/mp4">
+        </video>
+        <div class="content has-text-justified">
+          <p>
+            (for Appendix.D) We compare proposed HiFiTalker with several state-of-the-art baselines 
+            in both video reconstruction and video dubbing for talking head generaion.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Main compare video. -->
+
+    <!-- Ref weight video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Mixture Weight Visualization Video</h2>
+        <video id="ref-weight-video"
+                controls
+                muted
+                preload
+                playsinline
+                width="90%">
+          <source src="./static/videos/D2.ref_weight.mp4"
+                  type="video/mp4">
+        </video>
+        <div class="content has-text-justified">
+          <p>
+            (for Appendix.D) We visualize the frame-pixel hierarchical attention mixture weight by
+            multiplying the mixture weight and the references images.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Ref weight video. -->
+
+    <!-- Mouth compare video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Mouth Amplitude and Speed Ablation Video</h2>
+        <video id="mouth-compare-video"
+                controls
+                muted
+                preload
+                playsinline
+                width="90%">
+          <source src="./static/videos/E1.mouth_compare.mp4"
+                  type="video/mp4">
+        </video>
+        <div class="content has-text-justified">
+          <p>
+            (for Appendix.E) We compare talking head dubbing videos generated by HiFiTalker
+            with different maunal-set mouth amplitude or mouth speed.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Mouth compare video. -->
+
+  </div>
+</section>
+
+
+
+</body>
+</html>
